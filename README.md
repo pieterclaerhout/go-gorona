@@ -2,14 +2,14 @@
   <img width="460" height="300" src="gorona.png">
 </p>
 
-**Gorona is a CLI tool written in go to visualize Corona or Covid-19 status of a given country or worldwide.**
+**go-gorona is a CLI tool written in go to visualize Corona or Covid-19 status of a given country or worldwide.**
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 # Get   
 
 ```
-  go get -u github.com/pieterclaerhout/go-gorona/
+go get -u github.com/pieterclaerhout/go-gorona/
 ```
 
 # Run
@@ -17,7 +17,7 @@
 ```
 # List a country
 
-$ gorona Italy
+$ go-gorona Italy
 
 ┌─────────┬───────┬─────────────┬───────┬──────────────┬───────────┬────────┬──────────┬───────────────────┬────────────────────┐
 │ COUNTRY │ CASES │ TODAY CASES │ DEATH │ TODAY DEATHS │ RECOVERED │ ACTIVE │ CRITICAL │ CASES PER MILLION │ DEATHS PER MILLION │
@@ -27,7 +27,7 @@ $ gorona Italy
 
 # List all countries
 
-$ gorona
+$ go-gorona
 
 ┌────────────────────────────────────────────┬────────┬─────────────┬───────┬──────────────┬───────────┬────────┬──────────┬───────────────────┬────────────────────┐
 │ COUNTRY                                    │  CASES │ TODAY CASES │ DEATH │ TODAY DEATHS │ RECOVERED │ ACTIVE │ CRITICAL │ CASES PER MILLION │ DEATHS PER MILLION │
