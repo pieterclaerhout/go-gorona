@@ -3,7 +3,7 @@ package main
 import (
 	"testing"
 
-	"github.com/pieterclaerhout/gorona/client"
+	"github.com/pieterclaerhout/go-gorona/client"
 )
 
 var countries = []string{"China", "Italy", "USA", "Netherlands", "Sri Lanka"}

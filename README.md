@@ -5,18 +5,11 @@
 **Gorona is a CLI tool written in go to visualize Corona or Covid-19 status of a given country or worldwide.**
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-[![Build Status](https://travis-ci.com/pieterclaerhout/gorona.svg?branch=master)](https://travis-ci.com/pieterclaerhout/gorona)
 
 # Get   
 
 ```
-  go get -u github.com/pieterclaerhout/gorona/
-```
-
-# Pull
-
-```
-  docker pull pieterclaerhout/gorona:v1.0.0
+  go get -u github.com/pieterclaerhout/go-gorona/
 ```
 
 # Run
@@ -24,12 +17,7 @@
 ```
 # List a country
 
-if Get {
-  $ gorona Italy
-}
-if Pull {
-  $ docker run pieterclaerhout/gorona:v1.0.0 Italy
-}
+$ gorona Italy
 
 ┌─────────┬───────┬─────────────┬───────┬──────────────┬───────────┬────────┬──────────┬───────────────────┬────────────────────┐
 │ COUNTRY │ CASES │ TODAY CASES │ DEATH │ TODAY DEATHS │ RECOVERED │ ACTIVE │ CRITICAL │ CASES PER MILLION │ DEATHS PER MILLION │
@@ -39,12 +27,7 @@ if Pull {
 
 # List all countries
 
-if Get {
-  $ gorona
-}
-if Pull {
-  $ docker run pieterclaerhout/gorona:v1.0.0
-}
+$ gorona
 
 ┌────────────────────────────────────────────┬────────┬─────────────┬───────┬──────────────┬───────────┬────────┬──────────┬───────────────────┬────────────────────┐
 │ COUNTRY                                    │  CASES │ TODAY CASES │ DEATH │ TODAY DEATHS │ RECOVERED │ ACTIVE │ CRITICAL │ CASES PER MILLION │ DEATHS PER MILLION │
@@ -252,4 +235,3 @@ if Pull {
 │ TOTALS                                     │ 486702 │       15734 │ 22021 │          743 │    117452 │ 347229 │    14936 │           15170.9 │             1088.5 │
 └────────────────────────────────────────────┴────────┴─────────────┴───────┴──────────────┴───────────┴────────┴──────────┴───────────────────┴────────────────────┘
 ```
-#

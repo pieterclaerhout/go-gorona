@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/jedib0t/go-pretty/table"
-	"github.com/pieterclaerhout/gorona/gorona"
+	"github.com/pieterclaerhout/go-gorona/gorona"
 )
 
 const url = "https://corona.lmao.ninja/v2/countries/"

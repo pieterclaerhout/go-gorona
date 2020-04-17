@@ -1,4 +1,4 @@
-module github.com/pieterclaerhout/gorona
+module github.com/pieterclaerhout/go-gorona
 
 go 1.13
 
