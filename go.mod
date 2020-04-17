@@ -1,4 +1,4 @@
-module github.com/harik8/gorona
+module github.com/pieterclaerhout/gorona
 
 go 1.13
 

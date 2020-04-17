@@ -6,19 +6,36 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"time"
 
-	"github.com/harik8/gorona/gorona"
 	"github.com/jedib0t/go-pretty/table"
+	"github.com/pieterclaerhout/gorona/gorona"
 )
 
-const url = "https://corona.lmao.ninja/countries/"
+const url = "https://corona.lmao.ninja/v2/countries/"
 
 // GetCountry : Get by country
 func GetCountry(country string) {
 
+	today := getCountry(country, false)
+	yesterday := getCountry(country, true)
+
+	caseStates := gorona.CaseStates{today, yesterday}
+
+	printCaseStates(caseStates, true)
+
+}
+
+func getCountry(country string, yesterday bool) gorona.CaseState {
+
 	caseState := gorona.CaseState{}
 
-	req, err := http.Get(url + country)
+	qs := ""
+	if yesterday {
+		qs = "?yesterday=1"
+	}
+
+	req, err := http.Get(url + country + qs)
 	if err != nil {
 		log.Fatalln(err)
 	}
@@ -34,7 +51,12 @@ func GetCountry(country string) {
 		log.Fatalln(err)
 	}
 
-	printCaseState(caseState)
+	caseState.Date = time.Now()
+	if yesterday {
+		caseState.Date = time.Now().Add(-24 * time.Hour)
+	}
+
+	return caseState
 
 }
 
@@ -59,29 +81,40 @@ func GetCountries() {
 		log.Fatalln(err)
 	}
 
-	printCaseStates(caseStates)
+	printCaseStates(caseStates, false)
 
 }
 
 func printCaseState(caseState gorona.CaseState) {
-	printCaseStates(gorona.CaseStates{caseState})
+	printCaseStates(gorona.CaseStates{caseState}, true)
 }
 
-func printCaseStates(caseStates gorona.CaseStates) {
+func printCaseStates(caseStates gorona.CaseStates, printDates bool) {
 
 	t := table.NewWriter()
 	t.SetOutputMirror(os.Stdout)
 	t.SetStyle(table.StyleLight)
 
+	firstColumn := "Country"
+	if printDates {
+		firstColumn = "Date"
+	}
+
 	t.AppendHeader(
 		table.Row{
-			"Country", "Cases", "Today Cases", "Death", "Today Deaths", "Recovered", "Active", "Critical", "Cases Per Million", "Deaths Per Million",
+			firstColumn, "Cases", "Today Cases", "Death", "Today Deaths", "Recovered", "Active", "Critical", "Cases Per Million", "Deaths Per Million",
 		},
 	)
 
 	for _, caseState := range caseStates {
+
+		firstValue := caseState.Country
+		if printDates {
+			firstValue = caseState.Date.Format("2006-01-02")
+		}
+
 		t.AppendRow(table.Row{
-			caseState.Country,
+			firstValue,
 			caseState.Cases,
 			caseState.TodayCases,
 			caseState.Deaths,
@@ -92,9 +125,10 @@ func printCaseStates(caseStates gorona.CaseStates) {
 			caseState.CasesPerOneMillion,
 			caseState.DeathsPerOneMillion,
 		})
+
 	}
 
-	if len(caseStates) > 1 {
+	if !printDates {
 		t.AppendFooter(
 			table.Row{
 				"Totals",

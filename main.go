@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/harik8/gorona/cmd"
+	"github.com/pieterclaerhout/gorona/cmd"
 )
 
 func main() {

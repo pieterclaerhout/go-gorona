@@ -3,7 +3,7 @@ package cmd
 import (
 	"os"
 
-	cli "github.com/harik8/gorona/client"
+	cli "github.com/pieterclaerhout/gorona/client"
 	"github.com/spf13/cobra"
 )
 
