@@ -5,18 +5,18 @@
 **Gorona is a CLI tool written in go to visualize Corona or Covid-19 status of a given country or worldwide.**
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
-[![Build Status](https://travis-ci.com/harik8/gorona.svg?branch=master)](https://travis-ci.com/harik8/gorona)
+[![Build Status](https://travis-ci.com/pieterclaerhout/gorona.svg?branch=master)](https://travis-ci.com/pieterclaerhout/gorona)
 
 # Get   
 
 ```
-  go get -u github.com/harik8/gorona/
+  go get -u github.com/pieterclaerhout/gorona/
 ```
 
 # Pull
 
 ```
-  docker pull harik8/gorona:v1.0.0
+  docker pull pieterclaerhout/gorona:v1.0.0
 ```
 
 # Run
@@ -28,7 +28,7 @@ if Get {
   $ gorona Italy
 }
 if Pull {
-  $ docker run harik8/gorona:v1.0.0 Italy
+  $ docker run pieterclaerhout/gorona:v1.0.0 Italy
 }
 
 ┌─────────┬───────┬─────────────┬───────┬──────────────┬───────────┬────────┬──────────┬───────────────────┬────────────────────┐
@@ -43,7 +43,7 @@ if Get {
   $ gorona
 }
 if Pull {
-  $ docker run harik8/gorona:v1.0.0
+  $ docker run pieterclaerhout/gorona:v1.0.0
 }
 
 ┌────────────────────────────────────────────┬────────┬─────────────┬───────┬──────────────┬───────────┬────────┬──────────┬───────────────────┬────────────────────┐
